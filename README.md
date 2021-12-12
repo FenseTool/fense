@@ -59,6 +59,12 @@ Target: x86_64-unknown-linux-gnu
 Thread model: posix
 ```
 
+You  can find the code in the */home/fense/data*
+```
+fense@3c098b05ca85:~$ cd /home/fense/data
+fense@3c098b05ca85:~$ ls
+```
+
 Now exit the container
 
 ```
