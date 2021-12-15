@@ -35,8 +35,25 @@ fense@4d374957189c:~$ whoami
 fense
 ```
 
+`Before the run, you must export the LD_LIBRARY_PATH by the command line: export LD_LIBRARY_PATH=/usr/local/lib`
+
 You can now try running fense inside the container, by the way our image is based on ubuntu14.04. The version of llvm and clang is 3.4.0. If this worked correctly you should see an output similar to:
 
+Klee
+```
+root@ae325ecd89fc:~# klee --version
+KLEE 1.4.0.0 (https://klee.github.io)
+  Build mode: RelWithDebInfo (Asserts: ON)
+  Build revision: unknown
+
+LLVM (http://llvm.org/):
+  LLVM version 3.4svn
+  DEBUG build with assertions.
+  Built Dec 11 2021 (08:57:28).
+  Default target: x86_64-unknown-linux-gnu
+  Host CPU: x86-64
+ ```
+ 
 Clang
 
 ``` 
