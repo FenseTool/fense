@@ -29,47 +29,42 @@ Follow these links for installation instructions on [Ubuntu](https://docs.docker
 If this worked correctly your shell prompt will have changed, and you will be the `root` user, and you can switch to `fense` user , the password of `fense` user is `fense` too
 
 ```docker
-root@7206f7f2ddbd:~$ su fense
-fense@7206f7f2ddbd:~$: whoami
+fense@4d374957189c:~$ su fense
+Password: fense
+fense@4d374957189c:~$ whoami
 fense
 ```
 
-You can now try running fense inside the container, by the way our image is based on ubuntu14.04. The version of klee is 1.4.0 and the version of llvm and clang is 3.4.0. If this worked correctly you should see an output similar to:
+You can now try running fense inside the container, by the way our image is based on ubuntu14.04. The version of llvm and clang is 3.4.0. If this worked correctly you should see an output similar to:
 
-```
-fense@7206f7f2ddbd:~$ klee --version
-KLEE 1.4.0.0 (https://klee.github.io)
-  Build mode: RelWithDebInfo (Asserts: ON)
-  Build revision: 9fb2f5666d5f8c7c2f335fc8408883a0cf958964
-
-LLVM (http://llvm.org/):
-  LLVM version 3.4
-  Optimized build with assertions.
-  Built Dec  9 2021 (13:21:29).
-  Default target: x86_64-unknown-linux-gnu
-  Host CPU: x86-64
-```
-
-and Clang
+Clang
 
 ``` 
-$ clang --version
+root@4d374957189c:~$ clang -v
 clang version 3.4 (tags/RELEASE_34/final)
 Target: x86_64-unknown-linux-gnu
 Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.3
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.5.0
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0
 ```
 
 You  can find the code in the */home/fense/data*
 ```
-fense@3c098b05ca85:~$ cd /home/fense/data
-fense@3c098b05ca85:~$ ls
+fense@4d374957189c:~$ cd /home/fense/data
+fense@4d374957189c:~/data$ ls
+FENSE  SVF  cmake-3.9.0  dg  fense  klee-uclibc  llvm-build  llvm-src  wllvm-1.2.1  z3
 ```
 
 Now exit the container
 
 ```
-fense@3c098b05ca85:~$ exit
-root@7206f7f2ddbd:/# exit
+fense@4d374957189c:~$ exit
+root@4d374957189c:/# exit
 ```
 
 Because the `--rm` flag was used with the `docker run` command the container was destroyed (not visible in `docker ps -a`) when the application running in the container (`/bin/bash`) terminated.
