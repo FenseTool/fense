@@ -12,8 +12,8 @@
 Assuming you have Docker installed, you can run the following to try the latest release of FENSE:
 
 ```docker
-$ docker pull fensetools/fense:1.0
-$ docker run --rm -ti fensetools/fense:1.0
+$ docker pull fensetools/fense:2.0
+$ docker run --rm -ti fensetools/fense:2.0
 ```
 
 
